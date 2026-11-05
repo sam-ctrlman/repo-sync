@@ -1,0 +1,26 @@
+# repo-sync config — copy to ~/.config/repo-sync/config.toml and edit.
+# Keep real host names out of the tool repo: they belong in your own copy only.
+# TOML: plain keys first; every key after a [table] line belongs to that table.
+
+host = "git-server"            # ssh alias from ~/.ssh/config; "" = the server is this machine (tests)
+base = "/srv/git"              # bare repos live at <base>/<GROUP>/<NAME>.git
+remote = "backup"              # name of the git remote that points at <host>:<base>/...
+exclude = ["*/node_modules", "*/Downloads/*", "*/.gemini", "*/.codex", "*/.antigravity", "*/.agents"]
+bundle_dir = "~/backup/repo-sync"   # one folder per repo: <bundle_dir>/<GROUP>/<NAME>/
+keep_days = 45                      # prune: delete only when older than this ...
+keep_last = 3                       # ... AND not one of the newest N of that repo
+
+# folders to search for repos (up to 4 levels deep) = the GROUP a new repo gets on the server
+[roots]
+"~/projects" = "projects"
+"~/tools" = "tools"
+
+# per folder: branches pushed even when they are new (glob). Not listed = current branch + tracking branches only.
+[branches]
+"~/projects" = ["main", "production", "feat/*", "fix/*"]
+
+# optional: `repo-sync new --origin` seeds a bare repo served over HTTP and sets the `origin` remote
+[origin]
+base = "/var/www/git"          # on <host>
+user = "www-data"              # owner of <base>; created with `sudo -n -u <user>` ("" = no sudo)
+url = "https://git.example.com/repos"   # origin = <url>/<GROUP>/<NAME>.git

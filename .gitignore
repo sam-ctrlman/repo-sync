@@ -1,0 +1,25 @@
+.claude/
+
+# >>> meminit (AI-memory dirs — own git repos, never tracked here)
+.gemini/
+.codex/
+.antigravity/
+# <<< meminit
+
+# /memlayout: credentials — never commit
+.env*.local
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+*.credentials
+*service-account*.json
+id_rsa*
+id_ed25519*
+
+# workspace: Claude memory + notes stay local (never tracked)
+docs/notes/
+
+# python
+__pycache__/

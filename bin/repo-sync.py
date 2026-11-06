@@ -167,7 +167,11 @@ class Repo:
 
     @property
     def suggested(self) -> str:
-        return self.alias or f"{self.group}/{self.path.name}"
+        if self.alias:
+            return self.alias
+        if self.path.name.startswith("."):   # nested memory repo, e.g. <project>/.claude → GROUP/<project>.claude
+            return f"{self.group}/{self.path.parent.name}{self.path.name}"
+        return f"{self.group}/{self.path.name}"
 
     @property
     def key(self) -> str:

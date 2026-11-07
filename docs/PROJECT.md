@@ -3,7 +3,7 @@
 <!-- created 2026-11-05 · board prefix TOOL-REPOSYNC · workspace tools -->
 
 ## Goal
-Push and pull git repos to a bare-repo server over ssh with one command per sync: fast-forward only, a bundle first, old bundles pruned (older than `keep_days` AND not in the newest `keep_last`).
+Safe multi-repo Git sync CLI over SSH: automatic git bundle backups, retention pruning, worktree discovery, and fast-forward-only push/pull.
 
 ## Users
 A developer syncing many repos between machines through a self-hosted server before a full git forge exists.

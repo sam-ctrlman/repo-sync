@@ -1,10 +1,13 @@
+# >>> git-identity: ai-memory (private agent memory, never tracked; root AGENTS.md stays shared)
 .claude/
-
-# >>> meminit (AI-memory dirs — own git repos, never tracked here)
 .gemini/
 .codex/
 .antigravity/
-# <<< meminit
+.agents/
+/CLAUDE.md
+/CLAUDE.local.md
+/GEMINI.md
+# <<< git-identity: ai-memory
 
 # /memlayout: credentials — never commit
 .env*.local

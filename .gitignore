@@ -19,7 +19,37 @@ id_rsa*
 id_ed25519*
 
 # workspace: Claude memory + notes stay local (never tracked)
-docs/notes/
+/docs
+/docs/
 
 # python
 __pycache__/
+
+# git-identity: base (OS files, logs, backups)
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*:Zone.Identifier
+*.log
+*.orig
+*.sw?
+
+# git-identity: editors (Zed, VS Code, Sublime; TextMate leaves no project folder)
+.zed/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.sublime-workspace
+
+# git-identity: python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+/dist/
+/build/

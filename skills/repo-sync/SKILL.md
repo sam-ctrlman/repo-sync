@@ -27,6 +27,7 @@ command -v git >/dev/null && command -v ssh >/dev/null && python3 -c 'import tom
 
 - **`status [repo…] [--no-fetch]`** — read-only apart from `git fetch`. Run freely.
 - **`push` / `pull` / `new` / `new --origin`** — write to the server or the repo. These are gated steps: show them in a runbook first (push / new = ⛔ remote), run only after the gate keyword. `-n` (dry run) is read-only.
+- **Naming a repo in a runbook:** use its `~/path`, or a `GROUP/NAME` copied from `repo-sync status --no-fetch`. Never build the name from the remote URL or a board row (board CMN-RSYNC-1).
 - **`prune [-n]`** — deletes old bundles inside the configured bundle folder only.
 - **`install` / `uninstall`** — symlinks. Idempotent.
 
